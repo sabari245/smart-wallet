@@ -6,11 +6,11 @@ import "hardhat/console.sol";
 
 contract Wallet {
     address payable public owner;
-    address public proxy;
+    address payable public proxy;
 
     constructor(address _owner) {
         owner = payable(_owner);
-        proxy = msg.sender;
+        proxy = payable(msg.sender);
     }
 
     receive() external payable {}

@@ -1,10 +1,6 @@
-# Web 3 Starter kit
+# Smart Contract Wallet
 
-This project is a starter kit for simple web3 projects. I contains a custom deploy script that write the address and abi to `/frontend/src/components/interface.json`. It also contains a simple storage smart contract
-
-This is done as a part of **intermediate EVM course** in metacrafters
-
-It also contains a frontend folder made with next js and it uses web3modal, wagmi and viem to communicate with the blockchain
+This is a simple implementation of a smart contract wallet with basic functionalities. This contains functions to get the balance and address and transfer money from one wallet to another wallet
 
 ## hardhat configuration
 
@@ -30,10 +26,18 @@ npx hardhat run scripts/deploy.ts --network localhost
 
 ## frontend configuration
 
-make sure to install the packages with `npm i` before running the frontend
+This project comes with a frontend interface written with next js and shad cn ui, kindly refer to the `client` folder for frontend.
 
-rename the `.env.example` to `.env` and update the variables value.
+To run the frontend, enter the following commands
 
-> get your project id from https://cloud.walletconnect.com/
+```shell
+cd client
+npm i
+npm run dev
+```
 
-To update the networks, go to `/frontend/src/app/page.tsx` and update the `chains` array
+follow my account for more useful projects
+
+## Disclaimer
+
+THIS PROJECT IS SUBMITTED AS A PROJECT FOR METACRAFTERS ACADEMY, DO NOT USE THIS FOR PRODUCTION UNDER ANY CIRCUMSTANCES

@@ -6,6 +6,10 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       loggingEnabled: false
+    },
+    sepolia: {
+      url: "https://sepolia.infura.io/v3/aeb085248fd14c89a9635a8ac81321fa",
+      accounts: ["<your address>"]
     }
   }
 };
