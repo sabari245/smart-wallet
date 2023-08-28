@@ -1,8 +1,8 @@
-import Head from "next/head";
+"use client";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
 
-// wallet dependencies
 import {
   EthereumClient,
   w3mConnectors,
@@ -10,7 +10,7 @@ import {
 } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { arbitrum, mainnet, polygon, localhost, Chain } from "wagmi/chains";
+import { arbitrum, mainnet, polygon, Chain, sepolia } from "wagmi/chains";
 
 const localnet: Chain = {
   id: 31337,
@@ -31,10 +31,8 @@ const localnet: Chain = {
   network: "localhost",
 };
 
-// wallet configuration
-const chains = [arbitrum, mainnet, polygon, localhost, localnet];
-const projectId =
-  process.env.PROJECT_ID !== undefined ? process.env.PROJECT_ID : "";
+const chains = [arbitrum, mainnet, polygon, localnet, sepolia];
+const projectId = "65fc79d08d3ded2d18254b7c46068d10";
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
 const wagmiConfig = createConfig({
@@ -59,14 +57,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main>
-          <WagmiConfig config={wagmiConfig}>
-            <div className="p-6">{children}</div>
-          </WagmiConfig>
+        <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>
 
-          {/* web3 modal dialog box */}
-          <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-        </main>
+        <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
       </body>
     </html>
   );
